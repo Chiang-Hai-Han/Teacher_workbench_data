@@ -1,6 +1,18 @@
 document.getElementById('startBtn').addEventListener('click', async () => {
-  // 找到當前活躍的標籤頁
   let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-  // 發送訊息給 content.js，命令它開始執行提取
-  chrome.tabs.sendMessage(tab.id, { action: "START_SCRAPING", rowIndex: 0 });
+  document.getElementById('startBtn').disabled = true;
+  document.getElementById('status').innerText = "正在初始化自動流程...";
+  
+  // 發送全頁抓取指令
+  chrome.tabs.sendMessage(tab.id, { action: "START_FULL_SCRAPING" });
+});
+
+// 監聽來自 content.js 的進度回報
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  if (request.action === "UPDATE_STATUS") {
+    document.getElementById('status').innerText = request.message;
+    if (request.message.includes("已完成")) {
+      document.getElementById('startBtn').disabled = false;
+    }
+  }
 });
