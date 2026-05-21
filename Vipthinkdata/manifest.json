@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "豌豆課件小助手",
+  "version": "1.0",
+  "description": "一鍵提取課件資料",
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "host_permissions": [
+    "https://jy.vipthink.cn/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://jy.vipthink.cn/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
