@@ -36,10 +36,8 @@ async function runAutoScraper() {
     // 執行單行抓取邏輯
     const rowData = await processSingleRow(i);
     
-    if (rowData) {
-      allData.append(rowData); // 使用標準 Python-like 名稱或 JS 的 push
-      // 註：JavaScript 標準是 push，這裡為了防錯我做個相容
-      if (typeof allData.push === 'function') allData.push(rowData);
+   if (rowData) {
+      allData.push(rowData); 
     } else {
       console.error(`第 ${i + 1} 行抓取失敗，跳過並繼續下一條。`);
     }
