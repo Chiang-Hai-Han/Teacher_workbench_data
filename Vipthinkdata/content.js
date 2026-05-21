@@ -105,22 +105,35 @@ async function processSingleRow(index) {
     await sleep(1000);
 
 // 💡 升級版：死纏爛打型抓取函數 (如果框是空的，會每 0.5 秒重試一次，最多等 4 秒)
+// 💡 無敵版：突破層級限制的抓取函數
     const getInputValueByLabelAsync = async (labelText) => {
-      for (let i = 0; i < 8; i++) { // 最多等 4 秒 (8次 * 500ms)
+      for (let i = 0; i < 10; i++) { // 最多等 5 秒 (10次 * 500ms)
         const labels = Array.from(document.querySelectorAll('label'));
-        // 過濾出所有包含目標文字的標籤
         const matchedLabels = labels.filter(l => l.innerText.includes(labelText));
         
         for (let targetLabel of matchedLabels) {
-          if (targetLabel && targetLabel.nextElementSibling) {
-            const inputs = targetLabel.nextElementSibling.querySelectorAll('input');
+          // 【核心改變】：不找隔壁了！直接往上找 Element UI 的標準表單容器 .el-form-item
+          // 如果找不到，就退一步找 .el-col，再找不到就找爺爺節點
+          const container = targetLabel.closest('.el-form-item') || targetLabel.closest('.el-col') || targetLabel.parentElement.parentElement;
+          
+          if (container) {
+            // 在整個大區塊內，搜尋所有的 input 甚至是 textarea
+            const inputs = container.querySelectorAll('input, textarea');
+            
+            // 加入排查日誌：如果是課件名稱，印出到底找到了幾個框
+            if (labelText === "课件名称" && inputs.length > 0) {
+               console.log(`[排查] 尋找 "${labelText}" 區塊內，共發現 ${inputs.length} 個輸入框。`);
+            }
+
             for (let input of inputs) {
-              const val = input.value; // Vue 原生雙向綁定的值
-              if (val && val.trim() !== '') return val.trim();
+              const val = input.value; 
+              if (val && val.trim() !== '') {
+                return val.trim();
+              }
             }
           }
         }
-        // 如果找到了框但是沒字，或者連框都沒找到，就睡 0.5 秒再試
+        // 如果這個瞬間框裡還沒有字，睡 0.5 秒再試一次
         await sleep(500); 
       }
       return "N/A";
