@@ -3,14 +3,16 @@
 <head>
   <meta charset="utf-8">
   <style>
-    body { width: 200px; padding: 10px; font-family: sans-serif; }
-    button { width: 100%; padding: 10px; background: #42b983; color: white; border: none; border-radius: 4px; cursor: pointer; }
+    body { width: 220px; padding: 12px; font-family: sans-serif; }
+    button { width: 100%; padding: 10px; background: #42b983; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;}
     button:hover { background: #33a06f; }
+    #status { margin-top: 8px; font-size: 12px; color: #666; text-align: center; }
   </style>
 </head>
 <body>
-  <h4>課件抓取工具</h4>
-  <button id="startBtn">抓取第 1 行資料</button>
+  <h4>課件自動化抓取</h4>
+  <button id="startBtn">🚀 開始全頁循環抓取</button>
+  <div id="status">準備就緒</div>
   <script src="popup.js"></script>
 </body>
 </html>
