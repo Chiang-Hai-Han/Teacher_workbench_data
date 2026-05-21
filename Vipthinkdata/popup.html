@@ -4,14 +4,19 @@
   <meta charset="utf-8">
   <style>
     body { width: 220px; padding: 12px; font-family: sans-serif; }
-    button { width: 100%; padding: 10px; background: #42b983; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;}
-    button:hover { background: #33a06f; }
+    button { width: 100%; padding: 10px; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; margin-bottom: 8px;}
+    #startBtn { background: #42b983; }
+    #startBtn:hover { background: #33a06f; }
+    #stopBtn { background: #e74c3c; }
+    #stopBtn:hover { background: #c0392b; }
+    button:disabled { background: #cccccc !important; cursor: not-allowed; }
     #status { margin-top: 8px; font-size: 12px; color: #666; text-align: center; }
   </style>
 </head>
 <body>
   <h4>課件自動化抓取</h4>
   <button id="startBtn">🚀 開始全頁循環抓取</button>
+  <button id="stopBtn" disabled>🛑 停止抓取並導出</button>
   <div id="status">準備就緒</div>
   <script src="popup.js"></script>
 </body>
