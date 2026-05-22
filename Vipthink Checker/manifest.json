@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "小老師空值檢查員",
+  "version": "1.0",
+  "description": "自動檢查小老師作品是否漏填主題與建議",
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "host_permissions": [
+    "https://jy.vipthink.cn/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://jy.vipthink.cn/*"],
+      "js": ["content.js"]
+    }
+  ]
+}

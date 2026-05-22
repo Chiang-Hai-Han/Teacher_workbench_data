@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { width: 220px; padding: 12px; font-family: sans-serif; }
+    button { width: 100%; padding: 10px; background: #e6a23c; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; margin-bottom: 8px;}
+    button:hover { background: #cf9236; }
+    button:disabled { background: #cccccc; cursor: not-allowed; }
+    #status { margin-top: 8px; font-size: 12px; color: #666; text-align: center; }
+  </style>
+</head>
+<body>
+  <h4>漏填稽核工具</h4>
+  <button id="startBtn">🔍 開始全頁檢查</button>
+  <div id="status">準備就緒</div>
+  <script src="popup.js"></script>
+</body>
+</html>
