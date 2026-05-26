@@ -1,0 +1,3 @@
+display_name: Batch TTS From Excel
+short_description: Generate voice clips from spreadsheet rows through a local Gradio TTS page.
+default_prompt: Generate one voice item per spreadsheet row using the configured local TTS web app, then save audio files or create a download page and CSV when direct downloads are blocked.
