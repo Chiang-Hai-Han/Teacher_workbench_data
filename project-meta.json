@@ -1,0 +1,31 @@
+{
+  "name": "Teacher_workbench_data",
+  "description": "教研后台数据获取工具集 - 课件数据抓取、封面下载处理、内容检查",
+  "type": "toolset",
+  "status": "active",
+  "maturity": "production",
+  "owner": "海瀚",
+  "repository": "https://github.com/Chiang-Hai-Han/Teacher_workbench_data",
+  "language": ["Python", "JavaScript"],
+  "tools": [
+    {
+      "name": "Vipthink Checker",
+      "description": "Chrome 扩展，一键提取课件列表与详情"
+    },
+    {
+      "name": "Vipthinkdata",
+      "description": "Chrome 扩展"
+    },
+    {
+      "name": "自动下载图片",
+      "description": "Python 脚本：下载课件封面、CSV 规范化、插入图片到表格"
+    },
+    {
+      "name": "batch-tts-from-excel",
+      "description": "从 Excel 批量生成 TTS 语音"
+    }
+  ],
+  "version": "0.1.0",
+  "last_updated": "2026-05-26",
+  "license": "MIT"
+}

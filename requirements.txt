@@ -1,0 +1,3 @@
+# 本仓库工具全部使用 Python 标准库，无需额外安装
+# 如需运行自动下载图片相关脚本，需确保有 openpyxl
+# pip install openpyxl
